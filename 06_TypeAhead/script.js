@@ -20,16 +20,27 @@ fetch(endpoint)
 function findMatches(wordToMatch, cities) {
     return cities.filter(place => {
     //filter for city and states based on user input
-        const regex = new RegExp(wordToMatch, 'gi');
+        const regex = new RegExp(wordToMatch, 'gi'); // need this because we just can't put a var in the match function
         return place.city.match(regex) || place.state.match(regex);
     });
 }
 
 function displayMatches() {
-    console.log(this.value); // what is this.value?
+    //console.log(this.value); // what is this.value?
+    const matchArray = findMatches(this.value, cities);
+    //console.log(matchArray);  // first work on getting the data, then deal with hooking it up to html & event listeners
+    const html = matchArray.map(place => {
+        const regex = new RegExp(this.value, 'gi'); // create regex of value we're looking for, 'gi'= global, insensitive case
+        const cityName = place.city.replace(regex, `<span class="h1"> ${this.value}</span>`);
+        return `
+            <li>
+            <span class="name">${place.city}, ${place.state}</span> 
+            <span class="population">${place.population}</span>
+            </li>
+        `; 
+    }).join('');
+    suggestions.innerHTML = html; //display matches using 
 }
-
-
 
 searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
