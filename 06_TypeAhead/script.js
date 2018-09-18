@@ -33,6 +33,8 @@ function displayMatches() {
     //console.table(matchArray);  // first work on getting the data, then deal with hooking it up to html & event listeners
     const html = matchArray.map(place => {
         const regex = new RegExp(this.value, 'gi'); // create regex of value we're looking for, 'gi'= global, insensitive case
+
+        
         const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`); // spaces matter here, if there's a space before the $, a space will be highlighted...bug
         const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
         //replaced place.city & place.state with cityName/stateName
