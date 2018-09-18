@@ -4,9 +4,6 @@ const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb
 //console.table([["Phred","Codes","!"]]);
 
 const cities = [];
-const searchInput = document.querySelector('.search');
-const suggestions = document.querySelector('.suggestions');
-
 
 //const prom = fetch(endpoint);
 fetch(endpoint)
@@ -19,8 +16,8 @@ fetch(endpoint)
 
 function findMatches(wordToMatch, cities) {
     return cities.filter(place => {
-    //filter for city and states based on user input
-        const regex = new RegExp(wordToMatch, 'gi'); // need this because we just can't put a var in the match function
+    // filter for city and states based on user input
+        const regex = new RegExp(wordToMatch, 'gi'); // need this because we can't put a regex expression in the match function
         return place.city.match(regex) || place.state.match(regex);
     });
 }
@@ -33,7 +30,7 @@ function numberWithCommas(x) {
 function displayMatches() {
     //console.log(this.value); // what is this.value?
     const matchArray = findMatches(this.value, cities);
-    //console.log(matchArray);  // first work on getting the data, then deal with hooking it up to html & event listeners
+    //console.table(matchArray);  // first work on getting the data, then deal with hooking it up to html & event listeners
     const html = matchArray.map(place => {
         const regex = new RegExp(this.value, 'gi'); // create regex of value we're looking for, 'gi'= global, insensitive case
         const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`); // spaces matter here, if there's a space before the $, a space will be highlighted...bug
@@ -48,6 +45,9 @@ function displayMatches() {
     }).join('');
     suggestions.innerHTML = html; //display matches using 
 }
+
+const searchInput = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
 
 searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
