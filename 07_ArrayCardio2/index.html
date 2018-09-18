@@ -10,8 +10,8 @@
     <p><em>Results posted in console log</em></p>
 
     <script>
-        //some sample data
-
+        // some sample data
+        
         const people = [
             { name: 'Fred', year: 1988},
             { name: 'Kit', year: 1980},
@@ -37,24 +37,50 @@
             }
         }); 
         */  
+
         // Using arrow function instead
         /*const isAdult = people.some(person => {
             const currentYear = (new Date()).getFullYear();
             return currentYear - person.year >= 19;
         }); */
 
+        // Is at least 1 person 19yo
         // further reduced version of above functions
         const isAdult = people.some(person => 
             ((new Date()).getFullYear() - person.year >= 19));
         
-        //console.log(isAdult); //will show just true/false;
-        console.log({isAdult}); //will show variable and value
+        //console.log(isAdult); // will show  true/false
+        console.log({isAdult}); // will show prop and value
 
+        // is everyone 19?
+        const allAdults = people.every(person => 
+            ((new Date()).getFullYear() - person.year >= 19));
+        console.log({allAdults}); 
 
-        // Array.prototype.find() 
+        // Array.prototype.find() // find is like filter, but filter returns an array of items, find returns first item it finds
+        /*
+        const comment = comments.find(function(comment){
+            if(comment.id === 20398 ) {
+                return true;
+            }
+        }); */
 
+        // find single item, reduce to 1 line functino
+        const comment = comments.find(comment => comment.id===20398);       
+        console.log(comment);
 
-        //Array.prototype.findIndex()
+        // Array.prototype.findIndex()        
+        const index = comments.findIndex(comment => comment.id === 20398);
+        console.log(index);
+        // how to delete the index found...
+        // Two ways to do this...
+        // comments.splice(index, 1); // start at index, go for 1. Mutates the original array
+
+        // popular in redux world...this will create new array and leave original intact
+        const newComments = [
+            ...comments.slice(0, index),
+            ...comments.slice(index + 1) // goes to the end so don't need second parm
+        ];
 
         </script>
 </body>
