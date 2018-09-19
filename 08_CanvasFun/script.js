@@ -10,11 +10,14 @@ canvas.height = window.innerHeight;
 ctx.strokeStyle = '#BADA55';
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
+ctx.lineWidth = 25;
 
 // flag is set when holding mouse down, and not clicking down to stop drawing
 let isDrawing = false;
 let lastX = 0; // ????
 let lastY = 0;
+// add hue for use with hsl
+let hue =0;
 
 function draw(e) {
     // this will log all mouse events, all the time, we don't want that
@@ -22,6 +25,7 @@ function draw(e) {
     if (!isDrawing) return; // exit draw function when not drawing
     // everything below this will run when isDrawing is true
     // console.log(e);
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
     ctx.lineTo(e.offsetX, e.offsetY);
@@ -32,6 +36,7 @@ function draw(e) {
     // lastY = e.offsetY;
     // shortcut to above, called "destructuring an array"
     [lastX, lastY] = [e.offsetX, e.offsetY];
+    hue++;
 }
 
 //canvas.addEventListener('mousedown', () => isDrawing = true); // this won't work, on mousedown we need to update x,y to start at last location
@@ -45,3 +50,6 @@ canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => isDrawing = false);
 // also when leaving the window, stop the drawing
 canvas.addEventListener('mouseout', () => isDrawing = false);
+
+// playring around with other funcs, not quite what I expected
+//canvas.addEventListener('mouseenter', () => [lastX, lastY] = [e.offsetX, e.offsetY]);
