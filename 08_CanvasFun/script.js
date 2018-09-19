@@ -11,6 +11,8 @@ ctx.strokeStyle = '#BADA55';
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 25;
+// other properties for globalCompositeOperation: luminosity, source-over, source-in, destination-in, lighter, multiply, screen
+ctx.globalCompositeOperation = 'screen';
 
 // flag is set when holding mouse down, and not clicking down to stop drawing
 let isDrawing = false;
@@ -18,7 +20,7 @@ let lastX = 0; // ????
 let lastY = 0;
 // add hue for use with hsl
 let hue =0;
-// set cool effect by inc/dec value of line width
+// set cool effect by inc/dec value osf line width
 let direction = true;
 
 
