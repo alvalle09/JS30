@@ -23,7 +23,6 @@ let hue =0;
 // set cool effect by inc/dec value osf line width
 let direction = true;
 
-
 function draw(e) {
     // this will log all mouse events, all the time, we don't want that
     //console.log(e);    
