@@ -7,7 +7,7 @@
     <title>Cool  Console Dev Tools</title>
 </head>
 <body>
-    <p onClick="makeGreen()">Click Me</p>
+    <p onClick="makeGreen()">Click Me</p> <!-- inline function instead of adding event listener... for sake of simplicity -->
     <p>Click Me too</p>
    
     
@@ -15,7 +15,7 @@
         const dogs = [{ name: 'Skipper', age: 2}, 
                       { name: 'Ralph', age: 7}];
         
-        // use elements in console, select Break On...Attribute modifications to add breakpoint
+        // use elements tab in chrome dev tools, select Break On->Attribute Modifications to add breakpoint when element changes
         function makeGreen() {
             const p = document.querySelector("p");
             p.style.color = '#BADA55';
@@ -23,25 +23,32 @@
         }
 
 
-    // Regular Console
+    // Regular Console...duh
     console.log('Hey!');
 
     // Interpolated
-    console.log('Hello I am a %s string!', '💩');
+    console.log('Hello I am a %s string!', '💩!!!! haha!');
+        // maybe more convenient to use ES6 backticks???
+        // console.log(`Hello i am a ${var}`);
 
     // Styled -- use %c for styling
-    console.log('%c Cool text', 'font-size: 60px; color: yellow; background-color: red;');
-
+    console.log('%c Cool text', 'font-size: 60px; color: yellow; text-shadow: 2px 3px 0 grey; background: red;');
 
     // Warning!
-
+    console.warn('Ah...snap!');
 
     // Error 
-
+    console.error('This is a really serious error!');
 
     // Info
+    console.info('Ez on the lasagna!');
 
     // Testing
+    console.assert(1 === 1, 'That is true');
+    // line above doesn't fire unless condition is false! No wonder I couldn't see anything in console
+
+    
+
 
     // Clear console
 
