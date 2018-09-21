@@ -7,10 +7,9 @@
     <title>Cool  Console Dev Tools</title>
 </head>
 <body>
-    <p onClick="makeGreen()">Click Me</p> <!-- inline function instead of adding event listener... for sake of simplicity -->
+    <p  onClick="makeGreen()">Click Me</p> <!-- inline function instead of adding event listener... for sake of simplicity -->
     <p>Click Me too</p>
-   
-    
+       
     <script>
         const dogs = [{ name: 'Skipper', age: 2}, 
                       { name: 'Ralph', age: 7}];
@@ -21,7 +20,6 @@
             p.style.color = '#BADA55';
             p.style.fontSize = '50px';
         }
-
 
     // Regular Console...duh
     console.log('Hey!');
@@ -43,17 +41,21 @@
     // Info
     console.info('Ez on the lasagna!');
 
-    // Testing
-    console.assert(1 === 1, 'That is true');
-    // line above doesn't fire unless condition is false! No wonder I couldn't see anything in console
+    // Testing, this line only fires when condition is false 
+    // console.assert(1 === 1, 'That is true');
+    // console.assert(1 === 2, 'That is false');
 
-    
+    const p = document.querySelector('p');
 
+    //console.assert(p.classList.contains('ouch'), 'No, no no...');
 
     // Clear console
-
+    //console.clear(); // Parenthesis required. 
 
     // Viewing  DOM Elms
+    console.log(p);
+    console.dir(p);
+    
 
 
     // Grouping together
