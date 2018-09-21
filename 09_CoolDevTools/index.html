@@ -57,15 +57,16 @@
     console.dir(p);
     //console.clear();
 
+    
     // Grouping together
     dogs.forEach(dog => {
         console.log(`Hold up ${dog.name}`);
-        //console.group(`${dog.name}`);
+        console.group(`${dog.name}`);
        
         //console.log(`This is ${dog.name}`);
-        ///console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age} years old`);
         //c/onsole.log(`${dog.name} is ${dog.age*7} dog years`);
-        //console.groupEnd(`${group.name}`);
+        console.groupEnd(`${dog.name}`);
 
         /*console.log(`${dog.name} is ${dog.age} years old`);
         console.log(`${dog.name} is ${dog.age*7} dog years`); */
