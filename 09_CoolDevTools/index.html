@@ -12,7 +12,7 @@
        
     <script>
         const dogs = [{ name: 'Skipper', age: 2}, 
-                      { name: 'Ralph', age: 7}];
+                      { name: 'ROver', age: 7}];
         
         // use elements tab in chrome dev tools, select Break On->Attribute Modifications to add breakpoint when element changes
         function makeGreen() {
@@ -55,10 +55,31 @@
     // Viewing  DOM Elms
     console.log(p);
     console.dir(p);
+    //console.clear();
+
+    // Grouping together
+    dogs.forEach(dog => {
+        console.log(`Hold up ${dog.name}`);
+        //console.group(`${dog.name}`);
+       
+        //console.log(`This is ${dog.name}`);
+        ///console.log(`${dog.name} is ${dog.age} years old`);
+        //c/onsole.log(`${dog.name} is ${dog.age*7} dog years`);
+        //console.groupEnd(`${group.name}`);
+
+        /*console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age*7} dog years`); */
+
+    });
     
 
 
-    // Grouping together
+
+
+
+
+
+
 
 
     // Counting
