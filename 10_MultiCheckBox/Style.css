@@ -1,9 +1,8 @@
 html {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background: #64d3ae;
+    background: #ddb075;
 }
 
-/* style the inbox class*/
 .inbox {
     max-width: 400px;
     margin: 50px auto;
@@ -15,21 +14,21 @@ html {
 .item {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #F1F1F1;
+    border-bottom: 1px solid white;
 }
 
 .item:last-child {
     border-bottom: 0;
 }
 
-/* for any input element followed by a paragraph*/
+/* input element followed by a paragraph*/
 input:checked + p {
-    background: #F9F9F9;
+    background: white;
     text-decoration: line-through;
 }
 
 input[type="checkbox"] {
-    margin: 20px;
+    margin: 40px;
 }
 
 p {
