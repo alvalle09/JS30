@@ -28,7 +28,7 @@ input:checked + p {
 }
 
 input[type="checkbox"] {
-    margin: 40px;
+    margin: 20px;
 }
 
 p {
