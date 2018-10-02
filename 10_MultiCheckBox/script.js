@@ -24,12 +24,12 @@ function handleCheck(e) {
                 console.log('Starting in Between!');
             }
 
-            if (inBetween) {
+            if(inBetween) {
                 checkbox.checked = true;
             }
         });
     }
-
+   
     lastChecked = this;
 }
 
