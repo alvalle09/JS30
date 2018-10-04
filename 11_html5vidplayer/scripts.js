@@ -40,7 +40,7 @@ function updateButton() {
 
 /* Hook up events */
 video.addEventListener('click', togglePlay);
-video.addEventListener('play', updateButton); // fyi, no () in function call...
+video.addEventListener('play', updateButton); // fyi, () not used in function call...
 video.addEventListener('pause', updateButton);
 
 
