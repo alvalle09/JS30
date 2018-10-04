@@ -11,6 +11,7 @@ const skipButtons = player.querySelectorAll('[data-skip');
 const ranges = player.querySelectorAll('.player__slider');
 
 
+
 /* Build our functions */
 function togglePlay() {
     
@@ -23,14 +24,27 @@ function togglePlay() {
     {
         video.pause();
     }   */  
-    // use ternary function instead?
+    // use ternary function instead
     const method = video.paused ? 'play' : 'pause' ;
     video[method](); // weird syntax but it works!
 }
 
+function updateButton() {
+    // terniary for toggling icon based on pause prop
+    const icon = this.pause ? '🕷' : '🕸';
+    // from const above
+    toggle.textContent = icon;
+}
+
+
 
 /* Hook up events */
 video.addEventListener('click', togglePlay);
+video.addEventListener('play', updateButton); // fyi, no () in function call...
+video.addEventListener('pause', updateButton);
+
+
+
 
 
 
