@@ -30,8 +30,8 @@ function togglePlay() {
 }
 
 function updateButton() {
-    // terniary for toggling icon based on pause prop
-    const icon = this.pause ? '🕷' : '🕸';
+    // terniary for toggling icon based on paused prop
+    const icon = this.paused ? '🕷' : '🕸';
     // from const above
     toggle.textContent = icon;
 }
