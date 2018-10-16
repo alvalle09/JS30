@@ -30,6 +30,7 @@ function handleCheck(e) {
         });
     }
    
+    
     lastChecked = this;
 }
 
