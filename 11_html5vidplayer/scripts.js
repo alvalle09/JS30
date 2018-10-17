@@ -30,6 +30,12 @@ function togglePlay() {
     video[method](); // invoke method as prop to video
 }
 
+function handleRangeUpdate() {
+    video[this.name] = this.value;
+    console.log(this.value);
+    console.log(this.name);
+}
+
 function skip() {
     //console.log(this.dataset.skip);
     video.currentTime += parseFloat(this.dataset.skip);
@@ -52,6 +58,8 @@ video.addEventListener('play', updateButton); // fyi, () not used in function ca
 video.addEventListener('pause', updateButton);
 
 skipButtons.forEach(button => button.addEventListener('click', skip ));
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
+ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 
 
 
