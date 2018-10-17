@@ -26,20 +26,33 @@ function togglePlay() {
     }   */  
     // use ternary operator instead of above code
     const method = video.paused ? 'play' : 'pause' ;
+    //video[video.paused ? 'play' : 'pause' ](); // yes, this would work, but it's ugly
     video[method](); // invoke method as prop to video
 }
 
+function skip() {
+    //console.log(this.dataset.skip);
+    video.currentTime += parseFloat(this.dataset.skip);
+}
+
+
 function updateButton() {
-    // terniary for toggling icon based on paused prop
+    console.log('update the button');
+    // terniary syntax
     const icon = this.paused ? '🕷' : '🕸';
+    console.log(icon);
     // from const above
     toggle.textContent = icon;
 }
 
 /* Hook up events */
 video.addEventListener('click', togglePlay);
+toggle.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton); // fyi, () not used in function call...
 video.addEventListener('pause', updateButton);
+
+skipButtons.forEach(button => button.addEventListener('click', skip ));
+
 
 
 
