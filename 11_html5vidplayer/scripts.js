@@ -30,6 +30,12 @@ function togglePlay() {
     video[method](); // invoke method as prop to video
 }
 
+function handleProgress() {
+    const percent = (video.currentTime / video.duration) * 100;
+    progressBar.style.flexBasis = `${percent}%`;
+}
+
+
 function handleRangeUpdate() {
     video[this.name] = this.value;
     console.log(this.value);
@@ -50,11 +56,16 @@ function updateButton() {
     toggle.textContent = icon;
 }
 
+function scrub(e) {
+    console.log(e);
+}
+
 /* Hook up events */
-video.addEventListener('click', togglePlay);
+video.addEventListener('click', togglePlay); // No need to use () in functionCall()
 toggle.addEventListener('click', togglePlay);
-video.addEventListener('play', updateButton); // fyi, () not used in function call...
+video.addEventListener('play', updateButton); 
 video.addEventListener('pause', updateButton);
+video.addEventListener('timeupdate', handleProgress);
 
 skipButtons.forEach(button => button.addEventListener('click', skip ));
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
