@@ -38,8 +38,8 @@ function handleProgress() {
 
 function handleRangeUpdate() {
     video[this.name] = this.value;
-    console.log(this.value);
-    console.log(this.name);
+    //console.log(this.value);
+    //console.log(this.name);
 }
 
 function skip() {
@@ -57,7 +57,9 @@ function updateButton() {
 }
 
 function scrub(e) {
-    console.log(e);
+    //console.log(e);
+    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+    video.currentTime = scrubTime;
 }
 
 /* Hook up events */
@@ -70,6 +72,20 @@ video.addEventListener('timeupdate', handleProgress);
 skipButtons.forEach(button => button.addEventListener('click', skip ));
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+
+let mousedown = false;
+progress.addEventListener('click', scrub);
+//example of a short-circuit
+progress.addEventListener('mousemove',(e) => mousedown && scrub(e));
+progress.addEventListener('mousedown', () => mousedown = true);
+progress.addEventListener('mouseup', () => mousedown = false);
+
+
+///challenge: try adding full screen button...to be continued.
+
+
+
+
 
 
 

@@ -7,6 +7,9 @@ html {
     box-sizing: inherit;
 }
 
+/*
+   Css animations still not working as expected, under review.
+*/
 
 body {
     margin: 0;
