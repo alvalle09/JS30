@@ -41,7 +41,6 @@ function skip() {
     video.currentTime += parseFloat(this.dataset.skip);
 }
 
-
 function updateButton() {
     console.log('update the button');
     // terniary syntax
