@@ -28,6 +28,7 @@ function togglePlay() {
     const method = video.paused ? 'play' : 'pause' ;
     //video[video.paused ? 'play' : 'pause' ](); // yes, this would work, but it's ugly
     video[method](); // invoke method as prop to video
+    video.requestFullscreen();
 }
 
 function handleProgress() {
