@@ -7,10 +7,12 @@ const progress = player.querySelector('.progress');
 const progressBar = player.querySelector('.progress__filled');
 
 const toggle = player.querySelector('.toggle');
+const skipup = player.querySelector('.skipup');
 const skipButtons = player.querySelectorAll('[data-skip');
 const ranges = player.querySelectorAll('.player__slider');
+const fullscreenToggle = player.querySelectorAll('.fulltoggle');
 
-
+let fullscreen = false;
 
 /* Build our functions */
 function togglePlay() {
@@ -26,10 +28,19 @@ function togglePlay() {
     }   */  
     // use ternary operator instead of above code
     const method = video.paused ? 'play' : 'pause' ;
+    
     //video[video.paused ? 'play' : 'pause' ](); // yes, this would work, but it's ugly
     video[method](); // invoke method as prop to video
-    video.requestFullscreen();
+    //video.requestFullscreen(); ///this doesn't work
 }
+
+function toggleFullscreen() {
+    
+    //fullscreenToggle.style.minHeight = '100%';
+    //console.log(fullscreenToggle.style.minHeight);
+    console.log('Hello');
+}
+
 
 function handleProgress() {
     const percent = (video.currentTime / video.duration) * 100;
@@ -64,6 +75,8 @@ function scrub(e) {
 }
 
 /* Hook up events */
+
+
 video.addEventListener('click', togglePlay); // No need to use () in functionCall()
 toggle.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton); 
@@ -80,7 +93,6 @@ progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove',(e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
-
 
 ///challenge: try adding full screen button...to be continued.
 
