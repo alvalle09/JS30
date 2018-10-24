@@ -10,7 +10,7 @@ const toggle = player.querySelector('.toggle');
 const skipup = player.querySelector('.skipup');
 const skipButtons = player.querySelectorAll('[data-skip');
 const ranges = player.querySelectorAll('.player__slider');
-const fullscreenToggle = player.querySelectorAll('.fulltoggle');
+const fstoggle = player.querySelector('.fstoggle');
 
 let fullscreen = false;
 
@@ -34,11 +34,26 @@ function togglePlay() {
     //video.requestFullscreen(); ///this doesn't work
 }
 
+
 function toggleFullscreen() {
-    
-    //fullscreenToggle.style.minHeight = '100%';
-    //console.log(fullscreenToggle.style.minHeight);
-    console.log('Hello');
+    //console.log(player.style.minWidth);
+    //player.style.minWidth = '100%';    
+    //player.style.minHeight = '100%';
+    fullscreen = !fullscreen;
+    (fullscreen ? player.webkitRequestFullscreen() : document.webkitExitFullscreen());
+    const btntxt = fullscreen ? 'Exit Full Screen' : 'Full Screen';
+    console.log(btntxt);
+    // from const above
+    fstoggle.textContent = btntxt;
+
+   /* if (fullscreen) {
+        player.webkitRequestFullscreen();
+
+    }
+    else {
+        document.webkitExitFullscreen();
+    } */
+    console.log(fullscreen);    
 }
 
 
@@ -77,6 +92,7 @@ function scrub(e) {
 /* Hook up events */
 
 
+
 video.addEventListener('click', togglePlay); // No need to use () in functionCall()
 toggle.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton); 
@@ -95,6 +111,8 @@ progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
 
 ///challenge: try adding full screen button...to be continued.
+fstoggle.addEventListener('click', toggleFullscreen);
+
 
 
 
