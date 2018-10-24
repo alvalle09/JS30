@@ -48,7 +48,6 @@ function toggleFullscreen() {
 
    /* if (fullscreen) {
         player.webkitRequestFullscreen();
-
     }
     else {
         document.webkitExitFullscreen();
@@ -105,7 +104,7 @@ ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 
 let mousedown = false;
 progress.addEventListener('click', scrub);
-//example of a short-circuit
+//example of a short-circuit: if not mousedown, scrub(e) won't be evaluted
 progress.addEventListener('mousemove',(e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
