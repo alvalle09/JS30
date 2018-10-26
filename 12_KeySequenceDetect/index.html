@@ -10,9 +10,13 @@
 </head>
 <body>
     <script>
-    window.addEventListener('keyup', (e) => {
-        console.log(e);
-    })
+        const pressed = [];
+        const secretCode = 'alvall';
+        window.addEventListener('keyup', (e) => {
+            //console.log(e.key);
+        pressed.push(e.key);
+        console.log(pressed);   
+        })
     </script>    
 </body>
 </html>
