@@ -11,11 +11,19 @@
 <body>
     <script>
         const pressed = [];
-        const secretCode = 'alvall';
+        const secretCode = 'alvall'; //secret code to listen for
         window.addEventListener('keyup', (e) => {
-            //console.log(e.key);
-        pressed.push(e.key);
-        console.log(pressed);   
+            console.log(e.key);
+            pressed.push(e.key);
+            pressed.splice(-secretCode.length -1, pressed.length - secretCode.length);
+            
+            if (pressed.join('').includes(secretCode)) {
+                console.log('Yea!');
+                cornify_add();
+            }
+
+            console.log(pressed);   
+
         })
     </script>    
 </body>
