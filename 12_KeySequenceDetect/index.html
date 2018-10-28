@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,11 @@
     <script type="text/javascript" src="http://www.cornify.com/js/cornify.js">
     </script>
 </head>
+
 <body>
     <script>
         const pressed = [];
-        const secretCode = 'alvall'; //secret code to listen for
+        const secretCode = 'fred'; //secret code to listen for
         window.addEventListener('keyup', (e) => {
             console.log(e.key);
             pressed.push(e.key);
@@ -21,10 +23,9 @@
                 console.log('Yea!');
                 cornify_add();
             }
-
             console.log(pressed);   
-
         })
     </script>    
 </body>
+
 </html>
