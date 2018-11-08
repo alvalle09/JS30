@@ -20,9 +20,15 @@ const sliderImages = document.querySelectorAll('.slide-in');
 
 function checkSlide(e) {
     // wooo, tooo many events...performance issues!
-    //console.log(e);
+    // console.log(e);
     // more stats, still too many events, hence..debounce...
-    console.count(e);
+    // console.count(e);
+
+    console.log(window.scrollY);
+    sliderImages.forEach(slideImage => {
+        //const slideInAt =
+    });         
 }
 
-window.addEventListener('scroll', checkSlide);
+window.addEventListener('scroll', debounce(checkSlide));
+
