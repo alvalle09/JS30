@@ -25,9 +25,23 @@ function checkSlide(e) {
     // console.count(e);
 
     //console.log(window.scrollY);
-    sliderImages.forEach(slideImage => {
-        const slideInAt = (window.scrollY + window.innerHeight);
-        console.log(slideInAt);
+    sliderImages.forEach(sliderImage => {
+        // const slideInAt = (window.scrollY + window.innerHeight);
+        // value of scroll position when halfway throught the image
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+        //console.log(slideInAt);
+        // value at bottom of image
+        const imageBottom = sliderImage.offsetTop + sliderImage.height;
+        // use good var names to know what code is doing
+        const isHalfShown = slideInAt > sliderImage.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+
+        if (isHalfShown && isNotScrolledPast) {
+            sliderImage.classList.add('active');
+        } else {
+            sliderImage.classList.remove('active');
+        }
+        
     });         
 }   
 
