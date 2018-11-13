@@ -24,11 +24,12 @@ function checkSlide(e) {
     // more stats, still too many events, hence..debounce...
     // console.count(e);
 
-    console.log(window.scrollY);
+    //console.log(window.scrollY);
     sliderImages.forEach(slideImage => {
-        //const slideInAt =
+        const slideInAt = (window.scrollY + window.innerHeight);
+        console.log(slideInAt);
     });         
-}
+}   
 
 window.addEventListener('scroll', debounce(checkSlide));
 
