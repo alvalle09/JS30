@@ -3,11 +3,14 @@
   // also uses event delegations for items that aren't in Dom at time of assiging event handler
   const addItems = document.querySelector('.add-items'); // the form element
   const itemsList = document.querySelector('.plates'); // Plates list
-  const items = []; // array for saving plates
+  // const items = []; // array for saving plates, initially empty array
+  const items = JSON.parse(localStorage.getItem('items')) || [] ;
+
+
 
   //alert('hello');
 
-  function addItem(e){
+  function addItem(e) {
     // prevent form from submitting to server
     e.preventDefault();
     // console.log('hello');
@@ -23,6 +26,7 @@
     items.push(item);    
     //console.log(item);
     populateList(items, itemsList);
+    localStorage.setItem('items', JSON.stringify(items));
     this.reset();
 
   }
@@ -30,9 +34,10 @@
   // the reason to pass in values instead of using const above is to make this function reusable
   function populateList(plates = [], platesList) {
     platesList.innerHTML = plates.map((plate, i) => {      // this will loop over every item in plates arrary
+        // need to use terniary operator for checked property
         return `
             <li>
-                <input type="checkbox" data-index=${i} id="item${i}" checked/>
+                <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : '' } /> 
                 <label for="item${i}">${plate.text}</lable>
             </li>
         `;
@@ -42,5 +47,7 @@
 
   // listen for submit event, not click event
   addItems.addEventListener('submit', addItem);
+
+  populateList(items, itemsList);
 
 

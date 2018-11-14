@@ -60,6 +60,7 @@
       display: none;
     }
 
+    /* clever way of putting/removing icons on checkbox */
     .plates input + label:before {
       content: '⬜️';
       margin-right: 10px;
