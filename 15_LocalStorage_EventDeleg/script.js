@@ -44,10 +44,39 @@
     }).join(''); // map returns array, so join will concatenate and return one big string
   }
 
+  // event delegation 
+  function toggleDone(e) {
+    // console.log(e);
+    //console.log(e.target); // need to check if the target we're looking for is the element we want
+    
+    if (!e.target.matches('input')) return; // ignore if not an input element
+
+    //console.log(e.target);
+    const el = e.target;
+    //console.log(el.dataset.index);
+    const index = el.dataset.index;
+    // toggle the item using ! operator
+    items[index].done = !items[index].done;    
+    // persist to localstorage
+    localStorage.setItem('items', JSON.stringify(items));
+    // render the list
+    populateList(items, itemsList);
+  }
 
   // listen for submit event, not click event
   addItems.addEventListener('submit', addItem);
+  // use event delegation of parent element
+  itemsList.addEventListener('click', toggleDone);
 
   populateList(items, itemsList);
 
+  // the following won't work because we're dynamically re-rendering the items list, so events won't be attached
+  //
+  //const checkBoxes = document.querySelectorAll('input');
+  //checkBoxes.forEach(input => input.addEventListener('click', ()=> alert('hi')));
 
+  /////////
+  ///////
+  /// to do on my own !!!
+  //  1) re-render just single item
+  //  2) check all / uncheck all button
