@@ -32,7 +32,7 @@
     platesList.innerHTML = plates.map((plate, i) => {      // this will loop over every item in plates arrary
         return `
             <li>
-                <input type="checkbox" data-index=${i} id="item${i}" />
+                <input type="checkbox" data-index=${i} id="item${i}" checked/>
                 <label for="item${i}">${plate.text}</lable>
             </li>
         `;
