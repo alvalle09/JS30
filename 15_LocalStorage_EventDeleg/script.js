@@ -20,11 +20,23 @@
         text, 
         done: false
     }
-    items.push(item);
-    
+    items.push(item);    
     //console.log(item);
-    this.reset()
-    
+    populateList(items, itemsList);
+    this.reset();
+
+  }
+
+  // the reason to pass in values instead of using const above is to make this function reusable
+  function populateList(plates = [], platesList) {
+    platesList.innerHTML = plates.map((plate, i) => {      // this will loop over every item in plates arrary
+        return `
+            <li>
+                <input type="checkbox" data-index=${i} id="item${i}" />
+                <label for="item${i}">${plate.text}</lable>
+            </li>
+        `;
+    }).join(''); // map returns array, so join will concatenate and return one big string
   }
 
 
