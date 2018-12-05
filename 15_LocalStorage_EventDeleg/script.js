@@ -6,10 +6,6 @@
   // const items = []; // array for saving plates, initially empty array
   const items = JSON.parse(localStorage.getItem('items')) || [] ;
 
-
-
-  //alert('hello');
-
   function addItem(e) {
     // prevent form from submitting to server
     e.preventDefault();
@@ -28,7 +24,6 @@
     populateList(items, itemsList);
     localStorage.setItem('items', JSON.stringify(items));
     this.reset();
-
   }
 
   // the reason to pass in values instead of using const above is to make this function reusable
@@ -68,6 +63,7 @@
   // use event delegation of parent element
   itemsList.addEventListener('click', toggleDone);
 
+  // this method re-renders entire list, inefficient for large list. 
   populateList(items, itemsList);
 
   // the following won't work because we're dynamically re-rendering the items list, so events won't be attached
@@ -75,8 +71,8 @@
   //const checkBoxes = document.querySelectorAll('input');
   //checkBoxes.forEach(input => input.addEventListener('click', ()=> alert('hi')));
 
-  /////////
-  ///////
+  
+  // Challenge!
   /// to do on my own !!!
   //  1) re-render just single item
   //  2) check all / uncheck all button
