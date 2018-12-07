@@ -7,11 +7,11 @@
   const items = JSON.parse(localStorage.getItem('items')) || [] ;
 
   function addItem(e) {
-    // prevent form from submitting to server
+    // prevent form from submitting to server which will refresh the form
     e.preventDefault();
-    // console.log('hello');
-
-    const text = (this.querySelector('[name=item]')).value; // wrap in parens first, then grab value of input text box
+    
+    // we can use "this" here because this=the form element
+    const text = (this.querySelector('[name=item]')).value; // wrap in parens first, then grab value property of input text box
     const item = {
         //text: 'Item Name',
         //text: text,
@@ -23,10 +23,12 @@
     //console.log(item);
     populateList(items, itemsList);
     localStorage.setItem('items', JSON.stringify(items));
+    // reset refreshes the form after submit event, this clears the input box
     this.reset();
   }
 
   // the reason to pass in values instead of using const above is to make this function reusable
+  // i.e., function won't break if you call this function without an object
   function populateList(plates = [], platesList) {
     platesList.innerHTML = plates.map((plate, i) => {      // this will loop over every item in plates arrary
         // need to use terniary operator for checked property
@@ -60,6 +62,7 @@
 
   // listen for submit event, not click event
   addItems.addEventListener('submit', addItem);
+
   // use event delegation of parent element
   itemsList.addEventListener('click', toggleDone);
 
@@ -71,7 +74,7 @@
   //const checkBoxes = document.querySelectorAll('input');
   //checkBoxes.forEach(input => input.addEventListener('click', ()=> alert('hi')));
 
-  
+
   // Challenge!
   /// to do on my own !!!
   //  1) re-render just single item
