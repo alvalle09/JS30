@@ -37,6 +37,8 @@
     <script>
         const hero = document.querySelector('.hero');
         const text = hero.querySelector('h1');
+        // we'll call the amount the shadow should stretch a "walk"
+        const walk = 100; // 100px
 
         function shadow(e) {
             //console.log(e);
@@ -45,8 +47,23 @@
             //or all in one
             const {offsetWidth: width, offsetHeight: height} = hero;
             let { offsetX: x, offsetY: y } = e;
+            // this will give the coordinates of the target
+            //console.log(x, y);
+            // "this" is what we're listening on, but "target" is what triggered event
+            //console.log(this, e.target);
 
-            console.log(x, y);
+            if (this !== e.target) {
+                x = x + e.target.offsetLeft;
+                y = y + e.target.offsetTop;
+            }
+
+            //console.log(x, y);
+
+            const xWalk = (x / width * walk) - (walk / 2);
+            const yWalk = (y / height * walk) - (walk / 2);
+
+            console.log(xWalk, yWalk);
+
         }
 
         hero.addEventListener('mousemove', shadow);
