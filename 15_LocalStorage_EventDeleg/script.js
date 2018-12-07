@@ -32,9 +32,10 @@
   function populateList(plates = [], platesList) {
     platesList.innerHTML = plates.map((plate, i) => {      // this will loop over every item in plates arrary
         // need to use terniary operator for checked property
+        // the "id" and "label for" is how these items are linkws
         return `
             <li>
-                <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : '' } /> 
+                <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : '' } />                 
                 <label for="item${i}">${plate.text}</lable>
             </li>
         `;
@@ -48,7 +49,6 @@
     
     if (!e.target.matches('input')) return; // ignore if not an input element
 
-    //console.log(e.target);
     const el = e.target;
     //console.log(el.dataset.index);
     const index = el.dataset.index;
