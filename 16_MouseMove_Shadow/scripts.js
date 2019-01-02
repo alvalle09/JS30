@@ -27,9 +27,15 @@ function shadow(e) {
     const yWalk = Math.round((y / height * walk) - (walk / 2))
 
     //console.log(xWalk, yWalk);
-    text.style.textShadow = `${xWalk}px ${yWalk}px 0 red`;
 
+    //text.style.textShadow = `${xWalk}px ${yWalk}px 0 red`;
+    text.style.textShadow = 
+        `${xWalk}px ${yWalk}px 0 rgba(255,0,0,0.3),
+        ${xWalk * -1}px ${yWalk}px 0 rgba(0,0,255,0.3),
+        ${yWalk * -1}px ${xWalk * -1}px 0 rgba(0,255,0,0.3),
+        ${yWalk * -1}px ${xWalk}px 0 rgba(0,0,255,0.3)
 
+        `;
 }
 
 hero.addEventListener('mousemove', shadow);
