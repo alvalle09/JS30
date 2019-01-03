@@ -2,7 +2,8 @@
 body {
     margin: 0;
     font-family: sans-serif;
-    background: url("https://images.unsplash.com/photo-1429514513361-8fa32282fd5f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop&ixid=eyJhcHBfaWQiOjF9");
+    background: url("https://source.unsplash.com/1600x900/?concert");
+    /*https://source.unsplash.com/1600x900/?concert */
     background-size: cover;
     display: flex;
     align-items: center;
@@ -23,6 +24,18 @@ body {
     border-bottom: 1px solid #efefef;
     padding: 20px;
 }
+
+#bands li:last-child {
+    border-bottom: 0;
+}
+
+a {
+    color: #ffc600;
+    text-decoration: none;
+}
+
+
+
 
 
 
