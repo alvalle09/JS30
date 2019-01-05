@@ -10,3 +10,11 @@ const bands = [ 'The Beatles',
                 "Tom Petty",
                 "An Old Dog"];
 
+const sortedBands = bands.sort(function (a, b) {
+    if(a > b) {
+        return 1;
+    }
+    else {
+        return -1;
+    }    
+})
