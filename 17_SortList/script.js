@@ -10,11 +10,18 @@ const bands = [ 'The Beatles',
                 "Tom Petty",
                 "An Old Dog"];
 
+function strip(banName) {
+    return banName.replace(/^(a |the |an )/i, '').trim();
+}               
+
 const sortedBands = bands.sort(function (a, b) {
-    if(a > b) {
+    if (a > b) {
         return 1;
     }
     else {
         return -1;
     }    
-})
+});
+
+
+console.log(sortedBands);
