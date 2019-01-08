@@ -15,13 +15,16 @@ function strip(banName) {
     return banName.replace(/^(a |the |an )/i, '').trim();
 }               
 
-const sortedBands = bands.sort(function (a, b) {
-    if (strip(a) > strip(b)) {
+const sortedBands = bands.sort((a, b) => {
+   /* if (strip(a) > strip(b)) {
         return 1;
     }
     else {
         return -1;
-    }    
+    }  */ 
+    //changed to terniary operator
+    return strip(a) > strip(b) ? 1 : -1;
+
 });
 
 
