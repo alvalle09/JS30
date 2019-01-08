@@ -11,11 +11,12 @@ const bands = [ 'The Beatles',
                 "An Old Dog"];
 
 function strip(banName) {
+    //use regex to strip articles
     return banName.replace(/^(a |the |an )/i, '').trim();
 }               
 
 const sortedBands = bands.sort(function (a, b) {
-    if (a > b) {
+    if (strip(a) > strip(b)) {
         return 1;
     }
     else {
