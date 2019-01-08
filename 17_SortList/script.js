@@ -15,7 +15,8 @@ function strip(banName) {
     return banName.replace(/^(a |the |an )/i, '').trim();
 }               
 
-const sortedBands = bands.sort((a, b) => {
+
+const sortedBands = bands.sort((a, b)=> strip(a) > strip(b) ? 1 : -1); 
    /* if (strip(a) > strip(b)) {
         return 1;
     }
@@ -23,9 +24,12 @@ const sortedBands = bands.sort((a, b) => {
         return -1;
     }  */ 
     //changed to terniary operator
-    return strip(a) > strip(b) ? 1 : -1;
+    //return strip(a) > strip(b) ? 1 : -1;
+    //Changed to single line function above
 
-});
-
+    document.querySelector('#bands').innerHTML = 
+        sortedBands
+        .map(band => `<li>${band}</li>`)
+        .join(''); 
 
 console.log(sortedBands);
