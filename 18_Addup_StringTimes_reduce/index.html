@@ -5,6 +5,7 @@
   <title>Videos</title>
 </head>
 <body>
+  <h1 id="tTime">Total time: </h1>
   <ul class="videos">
     <li data-time="5:43">
       Video 1
@@ -205,7 +206,8 @@
     const mins = Math.floor(secondsLeft / 60);
     secondsLeft = secondsLeft % 60;
 
-    console.log(hours, mins, secondsLeft);
+    //console.log(hours, mins, secondsLeft);
+    document.querySelector('#tTime').innerHTML = 'Total time: ' + hours + 'h ' + mins + ' m ' + secondsLeft + ' s'; 
 
 
 
