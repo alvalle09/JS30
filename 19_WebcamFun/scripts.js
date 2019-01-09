@@ -12,7 +12,22 @@ function getVideo() {
         video.srcObject = localMediaStream;
         video.play();
 
-    });
+    })
+    .catch(err => {
+        console.error(`Sorry, access denied`, err);
+    })
+}
+
+function paintToCanvas() {
+    const width = video.videoWidth;
+    const height = video.videoHeight;
+    //console.log(width, height);
+    canvas.width = width;
+    canvas.height = height;
+
+    setInterval(() => {
+        ctx.drawImage(video, 0, 0, width, height);
+    }, 25);
 }
 
 getVideo();
