@@ -6,9 +6,13 @@ const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
 
 function getVideo() {
-    navigator.mediaDevices.getUserMedia({ video: true, audio: false})
-    .then(localMediaStream => {
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false}) 
+    // getUserMedia returns a promise...
+    .then(localMediaStream => {      
         console.log(localMediaStream);
+        // following line doesn't work anymore, it's been deprecated
+        //video.src = window.URL.createObjectURL(localMediaStream);
+        // use this instead
         video.srcObject = localMediaStream;
         video.play();
 
@@ -27,7 +31,7 @@ function paintToCanvas() {
 
     setInterval(() => {
         ctx.drawImage(video, 0, 0, width, height);
-    }, 25);
-}
+    }, 16);
+}   
 
 getVideo();
