@@ -3,7 +3,7 @@ const video = document.querySelector('.player');
 const canvas = document.querySelector('.photo');
 const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
-const snap = document.querySelector('.snap');
+const snap = document.querySelector('.snap');     // mp3 sound, camera click
 
 function getVideo() {
     navigator.mediaDevices.getUserMedia({ video: true, audio: false}) 
@@ -14,6 +14,7 @@ function getVideo() {
         //video.src = window.URL.createObjectURL(localMediaStream);
         // use this instead
         video.srcObject = localMediaStream;
+        // this function will emit 'canplay', captured below on eventlistener
         video.play();
 
     })
@@ -29,9 +30,18 @@ function paintToCanvas() {
     canvas.width = width;
     canvas.height = height;
 
-    setInterval(() => {
+    return setInterval(() => {
         ctx.drawImage(video, 0, 0, width, height);
     }, 16);
 }   
 
+function takePhoto() {
+    // play the sound
+    snap.currentTime = 0; 
+    snap.play();
+
+}
+
 getVideo();
+
+video.addEventListener('canplay', paintToCanvas);
