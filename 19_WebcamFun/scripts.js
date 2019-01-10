@@ -41,6 +41,7 @@ function paintToCanvas() {
         // mess with the pixels
         //pixels = redEffect(pixels);
         pixels = rgbSplit(pixels);
+        ctx.globalAlpha = 0.1;
 
         // put them back
         ctx.putImageData(pixels, 0, 0);
