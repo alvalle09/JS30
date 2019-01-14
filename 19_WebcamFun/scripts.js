@@ -16,7 +16,6 @@ function getVideo() {
         video.srcObject = localMediaStream;
         // this function will emit 'canplay', captured below on eventlistener
         video.play();
-
     })
     .catch(err => {
         console.error(`Sorry, access denied`, err);
@@ -41,12 +40,12 @@ function paintToCanvas() {
         // mess with the pixels
         //pixels = redEffect(pixels);
         pixels = rgbSplit(pixels);
-        ctx.globalAlpha = 0.1;
+        //ctx.globalAlpha = 0.1;
 
         // put them back
         ctx.putImageData(pixels, 0, 0);
 
-    }, 16);
+    }, 15);
 }   
 
 function takePhoto() {
@@ -84,9 +83,17 @@ function rgbSplit(pixels) {
         pixels.data[i - 250] = pixels.data[i + 2];     // blue
         // no need for alpha value
     }
-    return pixels;
-}
+        return pixels;
+    }
 
+
+function greenScreen(pixels) {
+    const levels = {};
+
+    document.querySelectorAll ('.rgb input').forEach((input) => {
+        levels[input.name] = input.value ;
+    });
+}
 
 
 getVideo();
