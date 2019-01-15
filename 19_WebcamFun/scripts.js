@@ -14,7 +14,7 @@ function getVideo() {
         //video.src = window.URL.createObjectURL(localMediaStream);
         // use this instead
         video.srcObject = localMediaStream;
-        // this function will emit 'canplay', captured below on eventlistener
+        // this function will emit 'canplay' event, captured below on eventlistener
         video.play();
     })
     .catch(err => {
@@ -49,7 +49,7 @@ function paintToCanvas() {
         // put them back
         ctx.putImageData(pixels, 0, 0);
 
-    }, 15);
+    }, 16);
 }   
 
 function takePhoto() {
@@ -70,6 +70,7 @@ function takePhoto() {
 
 }
 
+// I'll need to study the follwoing 3 fn's for clarification, play around with the parms...
 function redEffect(pixels) {
     for(let i = 0; i < pixels.data.length; i+=4) {
         pixels.data[i + 0] = pixels.data[i + 0] + 100;     // red  ,adding + 0 for formatting purposes only
@@ -80,6 +81,7 @@ function redEffect(pixels) {
     return pixels;
 }
 
+
 function rgbSplit(pixels) {
     for(let i = 0; i < pixels.data.length; i+=4) {
         pixels.data[i - 150] = pixels.data[i + 0];     // red  
@@ -87,19 +89,35 @@ function rgbSplit(pixels) {
         pixels.data[i - 250] = pixels.data[i + 2];     // blue
         // no need for alpha value
     }
-        return pixels;
-    }
-
+    return pixels;
+}
 
 function greenScreen(pixels) {
     const levels = {};
-
-    document.querySelectorAll ('.rgb input').forEach((input) => {
-        levels[input.name] = input.value ;
+  
+    document.querySelectorAll('.rgb input').forEach((input) => {
+      levels[input.name] = input.value;
     });
+    //console.log(levels);
 
-    console.log(levels);
-}
+    for (i = 0; i < pixels.data.length; i = i + 4) {
+      red = pixels.data[i + 0];
+      green = pixels.data[i + 1];
+      blue = pixels.data[i + 2];
+      alpha = pixels.data[i + 3];
+  
+      if (red >= levels.rmin
+        && green >= levels.gmin
+        && blue >= levels.bmin
+        && red <= levels.rmax
+        && green <= levels.gmax
+        && blue <= levels.bmax) {
+            // take it out!
+            pixels.data[i + 3] = 0;
+      }
+    }
+    return pixels;
+  }
 
 
 getVideo();
