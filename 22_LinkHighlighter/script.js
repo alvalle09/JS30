@@ -12,6 +12,9 @@ function highlightLink() {
     //console.log(this);    
     const linkCoords = this.getBoundingClientRect();
     console.log(linkCoords);
+    highlight.style.width = `${linkCoords.width}px`;
+    highlight.style.height = `${linkCoords.height}px`;
+
 }
 
 anchors.forEach(a => a.addEventListener('mouseenter', highlightLink));
