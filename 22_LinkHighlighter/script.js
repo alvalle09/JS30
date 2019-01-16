@@ -14,6 +14,7 @@ function highlightLink() {
     console.log(linkCoords);
     highlight.style.width = `${linkCoords.width}px`;
     highlight.style.height = `${linkCoords.height}px`;
+    highlight.style.transform = `translate(100px, 100px)`;
 
 }
 
