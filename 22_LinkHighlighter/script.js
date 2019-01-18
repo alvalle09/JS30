@@ -12,12 +12,20 @@ function highlightLink() {
     //console.log(this);    
     const linkCoords = this.getBoundingClientRect();
     console.log(linkCoords);
-    highlight.style.width = `${linkCoords.width}px`;
-    highlight.style.height = `${linkCoords.height}px`;
+
+    const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+    }
+
+    highlight.style.width = `${coords.width}px`;
+    highlight.style.height = `${coords.height}px`;
     // this one hard coded for prototyping
     //highlight.style.transform = `translate(100px, 100px)`;
-    highlight.style.transform = `translate(${linkCoords.left}px, ${linkCoords.top}px)`;
-    
+    highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+
 
 }
 
