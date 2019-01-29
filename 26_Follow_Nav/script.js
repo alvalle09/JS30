@@ -21,12 +21,15 @@ function handleEnter() {
 
     const coords = {
         height: dropdownCoords.height,
-        width: dropdownCoords.width
+        width: dropdownCoords.width,
+        top: dropdownCoords.top,
+        left: dropdownCoords.left,
     };
     // needs pixels, so use template strings
     background.style.setProperty('height', `${coords.height}px`);
     background.style.setProperty('width', `${coords.width}px`);
-
+    // this won't work when  another div or obther element above the nav...
+    background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
 
 }
 
