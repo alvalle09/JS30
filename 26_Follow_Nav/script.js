@@ -8,7 +8,15 @@ function handleEnter() {
     // console.log('enter!@');
     this.classList.add('trigger-enter');
     // delay active class 150 milliseconds
-    setTimeout(() => this.classList.add('trigger-enter-active'), 150);
+    /*
+    setTimeout(() => {
+        if (this.classList.contains('trigger-enter')) {
+            this.classList.add('trigger-enter-active')
+           }        
+    }, 150); */
+    // this easier to read than previous line
+    setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
+
     background.classList.add('open');
 
     const dropdown = this.querySelector('.dropdown');
