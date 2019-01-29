@@ -22,8 +22,8 @@ function handleEnter() {
     const coords = {
         height: dropdownCoords.height,
         width: dropdownCoords.width,
-        top: dropdownCoords.top,
-        left: dropdownCoords.left,
+        top: dropdownCoords.top - navcoords.top,
+        left: dropdownCoords.left - navcoords.left,
     };
     // needs pixels, so use template strings
     background.style.setProperty('height', `${coords.height}px`);

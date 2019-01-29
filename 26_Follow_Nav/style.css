@@ -96,7 +96,7 @@ html {
     width: 20px;
     height: 20px;
     display: block;
-    background: rgb(210, 219, 82);
+    background: #fff;
     transform: translateY(-50%) rotate(45deg);
   }
 
