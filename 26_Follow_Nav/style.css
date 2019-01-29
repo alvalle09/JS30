@@ -52,8 +52,8 @@ html {
     justify-content: center;
   }
 
-  .dropdown {
-    opacity: 0;
+  .dropdown {    
+    opacity: 0; /* hide initially*/
     position: absolute;
     overflow: hidden;
     padding: 20px;
@@ -62,7 +62,7 @@ html {
     transition: all 0.5s;
     transform: translateY(100px);
     will-change: opacity;
-    display: none;
+    display: none; /* hide initially*/
   }
 
   .trigger-enter .dropdown {
@@ -72,7 +72,7 @@ html {
   .trigger-enter-active .dropdown {
     opacity: 1;
   }
-  
+   
   .dropdownBackground {
     width: 100px;
     height: 100px;
@@ -84,7 +84,7 @@ html {
     transform-origin: 50% 0;
     display: flex;
     justify-content: center;
-    opacity:0;
+    opacity: 0;
   }
 
   .dropdownBackground.open {
@@ -96,9 +96,11 @@ html {
     width: 20px;
     height: 20px;
     display: block;
-    background: white;
+    background: rgb(210, 219, 82);
     transform: translateY(-50%) rotate(45deg);
   }
+
+
 
   .bio {
     min-width: 500px;
