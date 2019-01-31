@@ -28,9 +28,17 @@ slider.addEventListener('mousemove', (e) => {
     e.preventDefault();
 
     const x = e.pageX - slider.offsetLeft;
-    console.log(x, startX);
+    // console.log(x, startX); // this shows startX doesn't change, but x does
+
+    const walk = (x - startX) * 3; // use *x to increase scroll speed
+    //console.log(walk);
+
+    //slider.scrollLeft = walk; // this works weird cuz scrollLeft is constantly recalculated
+    slider.scrollLeft = scrollLeft - walk;
 
     //console.count(isDown);  
     //console.log('Do more work!');
 });
 
+/// interesting mods to make on this, use for drag and drop using above event listeners...
+/// Do something with the divs when clicked, some kind of game, maybe matching cards 
