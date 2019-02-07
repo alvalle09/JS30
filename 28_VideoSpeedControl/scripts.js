@@ -24,3 +24,8 @@ function handleMove(e) {
 
  speed.addEventListener('mousemove', handleMove);
  //here we can add other events such as touchMove, etc..
+
+
+
+
+
