@@ -2,6 +2,8 @@
 let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
+// anything with [data-time] is selected, can include images, buttons, text..
+const buttons = document.querySelectorAll('[data-time]');
 
 function timer(seconds) {
     const now = Date.now();
@@ -42,7 +44,16 @@ function displayTimeLeft(seconds) {
 function displayEndTime(timestamp) {
     const end = new Date(timestamp);
     const hour = end.getHours();
+    const adjustedHour = hour > 12 ? hour - 12 : (hour == 0 ? '12' : hour );
     const minutes = end.getMinutes();
-    endTime.textContent = `Be Back At ${hour}:${minutes}`;
+    endTime.textContent = `Be Back At ${adjustedHour}:${minutes < 12 ? '0' : ''}${minutes}  `;
+
 
 }
+
+function startTimer() {
+    const seconds = parseInt(this.dataset.time);
+    console.log(seconds);
+}
+
+buttons.forEach(button => button.addEventListener('click', startTimer));
