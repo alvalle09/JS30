@@ -5,6 +5,8 @@ let countdown;
 function timer(seconds) {
     const now = Date.now();
     const then = now + seconds * 1000;
+    console.log({now, then});
+    displayTimeLeft(seconds);
 
     countdown = setInterval(() => {
         const secondsLeft = Math.round((then - Date.now()) /1000); // run date.now again to get current time, divide by 1k to get seconds
@@ -14,12 +16,17 @@ function timer(seconds) {
             return;
         } */   /// this doesn't stop even from running, it just returns nothing      
 
-        // can't be <= 0, otherwise will still give -1 seconds
-        if (secondsLeft < 0) {        
+        // can't be < 0, otherwise will still give -1 seconds
+        if (secondsLeft <= 0) {        
             clearInterval(countdown);
             return;
         }
-        console.log(secondsLeft);
+        //console.log(secondsLeft);
+        displayTimeLeft(secondsLeft);
     }, 1000);
+}
+
+function displayTimeLeft(seconds) {
+    console.log(seconds);
 }
 
