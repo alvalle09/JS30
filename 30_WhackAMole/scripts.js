@@ -31,7 +31,7 @@ function randomHole(holes) {
 }
 
 function startTimer() {
-    const seconds = 10;
+    const seconds = 20;
     timer(seconds);
     //console.log(seconds);
 }
@@ -67,8 +67,8 @@ function timer(seconds) {
 
 
 function peep() {
-    const time = randomTime(200, 1000);
-    const hole = randomHole(holes);
+    const time = randomTime(1000, 5000);  //(200, 1000) // how much time the mole will peep up
+    const hole = randomHole(holes); // which hole will it pop up on 
     console.log(time, hole);
     
     hole.classList.add('up');
@@ -103,9 +103,11 @@ function bonk(e) {
     if (!e.isTrusted) return; // this only true when actual click from user, not simulated in js
     //console.log(e);
     score++;
+    this.classList.add('bonked');
     this.classList.remove('up');
+    this.classList.remove('bonked');
     scoreBoard.textContent = score;
 }
 
-//moles.forEach(mole => mole.addEventListener('click', bonk));
-moles.forEach(mole => mole.addEventListener('touchstart', bonk));
+moles.forEach(mole => mole.addEventListener('click', bonk));
+//moles.forEach(mole => mole.addEventListener('touchstart', bonk));
