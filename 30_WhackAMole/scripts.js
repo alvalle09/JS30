@@ -4,6 +4,7 @@ const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
 const timeKeeper = document.querySelector('.timeleft');
 const btnStart = document.querySelector('.start');
+const testColor = document.querySelector('.test');
 
 let lastHole;
 let timeUp = false;
@@ -64,15 +65,9 @@ function timer(seconds) {
 
 
 function peep() {
-<<<<<<< HEAD
-    const time = randomTime(200, 1000);
-    const hole = randomHole(holes);
-    //console.log(time, hole);
-=======
-    const time = randomTime(1000, 5000);  //(200, 1000) // how much time the mole will peep up
+    const time = randomTime(200, 1000);  //(200, 1000) // how much time the mole will peep up
     const hole = randomHole(holes); // which hole will it pop up on 
     console.log(time, hole);
->>>>>>> c01814daea00febdc17ad86ecd5a62a5bc22defa
     
     hole.classList.add('up');
     setTimeout(() => {
@@ -108,13 +103,8 @@ function bonk(e) {
     score++;
     this.classList.add('bonked');
     this.classList.remove('up');
-    this.classList.remove('bonked');
     scoreBoard.textContent = score;
 }
 
 moles.forEach(mole => mole.addEventListener('click', bonk));
-<<<<<<< HEAD
-//moles.forEach(mole => mole.addEventListener('touchstart', bonk)); // no need for this because click is same as click event
-=======
 //moles.forEach(mole => mole.addEventListener('touchstart', bonk));
->>>>>>> c01814daea00febdc17ad86ecd5a62a5bc22defa

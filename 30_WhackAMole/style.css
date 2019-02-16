@@ -14,6 +14,11 @@ body {
   font-family: 'Amatic SC', cursive;
 }
 
+.test {
+  font-size: 50px;
+  color: red;
+}
+
 h1 {
   text-align: center;
   font-size: 10rem;
@@ -80,15 +85,10 @@ h2 {
   top: 0;
 }
 
-.mole .bonked {
-  /* */
-  -ms-transform: rotate(-20deg); 
--webkit-transform: rotate(-20deg); 
-transform: rotate(-20deg);
+ .mole.bonked {
+  transform:rotate(45deg);
 
--ms-transform: rotate(20deg); 
--webkit-transform: rotate(20deg); 
-transform: rotate(20deg);
+ color: blueviolet;
   
 }
 
