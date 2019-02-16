@@ -79,3 +79,28 @@ h2 {
 .hole.up .mole {
   top: 0;
 }
+
+.mole .bonked {
+  /* */
+  -ms-transform: rotate(-20deg); 
+-webkit-transform: rotate(-20deg); 
+transform: rotate(-20deg);
+
+-ms-transform: rotate(20deg); 
+-webkit-transform: rotate(20deg); 
+transform: rotate(20deg);
+  
+}
+
+
+/* 
+
+-ms-transform: rotate(-20deg); 
+-webkit-transform: rotate(-20deg); 
+transform: rotate(-20deg);
+
+-ms-transform: rotate(20deg); 
+-webkit-transform: rotate(20deg); 
+transform: rotate(20deg);
+
+*/
