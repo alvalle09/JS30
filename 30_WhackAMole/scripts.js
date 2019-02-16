@@ -31,16 +31,14 @@ function randomHole(holes) {
 }
 
 function startTimer() {
-    const seconds = 10;
+    const seconds = 20;
     timer(seconds);
     //console.log(seconds);
 }
 
-function displayTimeLeft(seconds) {
-    
+function displayTimeLeft(seconds) {  
     timeKeeper.textContent = `${seconds} seconds left`;
-    //document.title = `${'🕓'} ${display}`;
-
+    document.title = `${'🕓'} ${seconds} left to whak a mole!`;
 }
 
 function timer(seconds) {
@@ -59,7 +57,6 @@ function timer(seconds) {
             clearInterval(countdown);
             return;
         }
-        //console.log(secondsLeft);
         displayTimeLeft(secondsLeft);
     }, 1000);
 } 
@@ -69,7 +66,7 @@ function timer(seconds) {
 function peep() {
     const time = randomTime(200, 1000);
     const hole = randomHole(holes);
-    console.log(time, hole);
+    //console.log(time, hole);
     
     hole.classList.add('up');
     setTimeout(() => {
@@ -90,7 +87,7 @@ function startGame() {
 
     peep();
     // end after 10 seconds
-    setTimeout(() => timeUp = true, 10000);
+    setTimeout(() => timeUp = true, 20000);
     // show time left
     timeKeeper.style.display = 'block';
 
@@ -107,5 +104,5 @@ function bonk(e) {
     scoreBoard.textContent = score;
 }
 
-//moles.forEach(mole => mole.addEventListener('click', bonk));
-moles.forEach(mole => mole.addEventListener('touchstart', bonk));
+moles.forEach(mole => mole.addEventListener('click', bonk));
+//moles.forEach(mole => mole.addEventListener('touchstart', bonk)); // no need for this because click is same as click event
