@@ -67,17 +67,22 @@ function timer(seconds) {
 function peep() {
     const time = randomTime(200, 1000);  //(200, 1000) // how much time the mole will peep up
     const hole = randomHole(holes); // which hole will it pop up on 
-    console.log(time, hole);
+    //console.log(time, hole);
     
+    //hole.classList.remove('bonked');
+    moles.forEach(mole => mole.classList.remove('bonked'));
     hole.classList.add('up');
+    
     setTimeout(() => {
         hole.classList.remove('up');
-        hole.classList.remove('bonked');
+        
         // if game isn't over, keep repeating
-       if (!timeUp) { peep()}
-       else {
-        btnStart.disabled = false;
-       };
+        if (!timeUp) { 
+            peep();
+        }
+        else {
+            btnStart.disabled = false;
+        };
     }, time);
 }
 
@@ -100,10 +105,11 @@ function startGame() {
 
 function bonk(e) {
     if (!e.isTrusted) return; // this only true when actual click from user, not simulated in js
-    //console.log(e);
+    console.log(e);
     score++;
     this.classList.add('bonked');
     this.classList.remove('up');
+    //this.classList.remove('bonked');
     
     scoreBoard.textContent = score;
 }
