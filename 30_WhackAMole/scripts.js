@@ -72,6 +72,7 @@ function peep() {
     hole.classList.add('up');
     setTimeout(() => {
         hole.classList.remove('up');
+        hole.classList.remove('bonked');
         // if game isn't over, keep repeating
        if (!timeUp) { peep()}
        else {
@@ -103,6 +104,7 @@ function bonk(e) {
     score++;
     this.classList.add('bonked');
     this.classList.remove('up');
+    
     scoreBoard.textContent = score;
 }
 

@@ -85,10 +85,14 @@ h2 {
   top: 0;
 }
 
- .mole.bonked {
-  transform:rotate(45deg);
+@keyframes bonkMole {
+  from {transform: rotate(20deg);}
+  to {transform: rotate(-20deg);}
+}
 
- color: blueviolet;
+ .mole.bonked {
+    animation-name: bonkMole;
+    animation-duration: 0.8s;
   
 }
 
