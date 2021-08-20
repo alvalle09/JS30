@@ -14,6 +14,18 @@ body {
   font-family: 'Amatic SC', cursive;
 }
 
+button {
+  font-size: large;
+  margin: 20px;
+}
+
+.container {
+  display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+
 .test {
   font-size: 50px;
   color: red;
